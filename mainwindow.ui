@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>573</width>
+    <height>738</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GRUB Assistant</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="repairWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>600</height>
+        </size>
+       </property>
+       <property name="windowTitle">
+        <string>Repair</string>
+       </property>
+       <attribute name="title">
+        <string>Repair</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="repairLayout">
+        <item>
+         <widget class="QLabel" name="warningLabel">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string>color: red;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="uefiLabel">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>UEFI</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="efiLayout">
+          <item>
+           <widget class="QLabel" name="efiLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>EFI Partition:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="efiInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseButton">
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="uefibLayout">
+          <item>
+           <widget class="QPushButton" name="repair1Button">
+            <property name="text">
+             <string>Repair UEFI GRUB</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="live1Button">
+            <property name="text">
+             <string>Repair UEFI GRUB (Live CD)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="legacyLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Legacy BIOS</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="biosLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="DiskLabel">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Install to Disk </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="DiskcomboBox">
+            <property name="editable">
+             <bool>false</bool>
+            </property>
+            <property name="insertPolicy">
+             <enum>QComboBox::InsertPolicy::InsertAtCurrent</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="tableLabel">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="biosbLayout">
+          <item>
+           <widget class="QPushButton" name="repair2Button">
+            <property name="text">
+             <string>Repair BIOS GRUB</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="live2Button">
+            <property name="text">
+             <string>Repair BIOS GRUB (Live CD)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="mountLayout">
+          <item>
+           <widget class="QPushButton" name="mountButton">
+            <property name="text">
+             <string>Mount Disks (If you are using a live CD.)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="umountButton">
+            <property name="text">
+             <string>Umount /mnt</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="configureWidget">
+       <property name="windowTitle">
+        <string>Configure</string>
+       </property>
+       <attribute name="title">
+        <string>Configure</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="configureLayout">
+        <item>
+         <layout class="QHBoxLayout" name="loadLayout">
+          <item>
+           <widget class="QPushButton" name="loadButton">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Load Configuration</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="themeLayout">
+          <item>
+           <widget class="QLabel" name="themeLabel">
+            <property name="text">
+             <string>GRUB Theme:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="themeInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseThemeButton">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="timeoutLayout">
+          <item>
+           <widget class="QLabel" name="timeoutLabel">
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Timeout:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="timeoutInput">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maxLength">
+             <number>50</number>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <property name="cursorMoveStyle">
+             <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+            </property>
+            <property name="fixedWidth" stdset="0">
+             <number>60</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="menuLayout">
+          <item>
+           <widget class="QLabel" name="defaultMenuLabel">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Default Menu:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="defaultMenuCombo"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="GFXLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>GFXMODE (Resolution)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="notelabel">
+          <property name="text">
+           <string>Use 'auto' to let GRUB  decide</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox">
+          <property name="text">
+           <string>OS Prober</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="kernelLabel">
+          <property name="text">
+           <string>Kernel Command Line:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="kernelInput"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="moduleslabel">
+          <property name="text">
+           <string>GRUB_PRELOAD_MODULES</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="moduleslineEdit"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="updateLayout">
+          <item>
+           <widget class="QPushButton" name="saveButton">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="updateButton">
+            <property name="text">
+             <string>Update GRUB Menu</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="installWidget">
+       <property name="windowTitle">
+        <string>Install</string>
+       </property>
+       <attribute name="title">
+        <string>Install</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="installLayout"/>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="LogBrowser"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
