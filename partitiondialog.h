@@ -17,17 +17,22 @@ public:
 
     // 获取用户选择的 EFI 分区
     QString getEfiPartition() const;
+    QString getEfiMountPoint() const;
 
 private slots:
     void onConfirm(); // 确认按钮点击事件
+    void onFixButtonClicked();
 
 private:
+    bool rooted = false;
+    QString mount;
+    QString uuid;
     void populatePartitions(); // 获取分区列表并填充 ComboBox
     QString findEFIMountPoint(const QString &efiPartition); // 查找 EFI 分区挂载点
     QString getFsType(const QString &partition); // 获取分区文件系统类型
     QString getUUID(const QString &partition); // 获取分区 UUID
     QString getMountPointFromFstab(const QString &uuid); // 从 fstab 查找挂载点
-    void mountPartitions(); // 挂载分区
+    bool mountPartitions(); // 挂载分区
 
     QComboBox *rootPartitionCombo; // 根文件系统分区选择
     QComboBox *efiPartitionCombo;  // EFI 分区选择

@@ -73,10 +73,10 @@
            </font>
           </property>
           <property name="text">
-           <string>UEFI</string>
+           <string>UEFI Mode</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
           </property>
          </widget>
         </item>
@@ -97,7 +97,7 @@
              </size>
             </property>
             <property name="text">
-             <string>EFI Partition:</string>
+             <string>EFI Mount Point:</string>
             </property>
            </widget>
           </item>
@@ -120,7 +120,25 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="uefibLayout">
+         <layout class="QHBoxLayout" name="idLayout">
+          <item>
+           <widget class="QLabel" name="idlabel">
+            <property name="text">
+             <string>EFI Boot Entry ID: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="idlineEdit">
+            <property name="text">
+             <string>ARCH</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="uefireLayout">
           <item>
            <widget class="QPushButton" name="repair1Button">
             <property name="text">
@@ -129,44 +147,27 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="live1Button">
+           <widget class="QPushButton" name="reg1Button">
             <property name="text">
-             <string>Repair UEFI GRUB (Live CD)</string>
+             <string>Regenerate GRUB Configuration</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="legacyLabel">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="sizeIncrement">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
+         <widget class="QLabel" name="leagcyLabel">
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <kerning>true</kerning>
            </font>
           </property>
           <property name="text">
-           <string>Legacy BIOS</string>
+           <string>Leagcy Mode</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
           </property>
          </widget>
         </item>
@@ -214,7 +215,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="biosbLayout">
+         <layout class="QHBoxLayout" name="leagcyreLayout">
           <item>
            <widget class="QPushButton" name="repair2Button">
             <property name="text">
@@ -223,20 +224,45 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="live2Button">
+           <widget class="QPushButton" name="reg2Button">
             <property name="text">
-             <string>Repair BIOS GRUB (Live CD)</string>
+             <string>Regenerate GRUB Configuration</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
+         <widget class="QLabel" name="liveLabel">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Install On Other System (Live CD Mode) </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="supportLabel">
+          <property name="text">
+           <string>Only Support UEFI Mode</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="mountLayout">
           <item>
            <widget class="QPushButton" name="mountButton">
             <property name="text">
-             <string>Mount Disks (If you are using a live CD.)</string>
+             <string>Mount Disks to /mnt</string>
             </property>
            </widget>
           </item>
@@ -244,6 +270,24 @@
            <widget class="QPushButton" name="umountButton">
             <property name="text">
              <string>Umount /mnt</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="liveLayout">
+          <item>
+           <widget class="QPushButton" name="live1Button">
+            <property name="text">
+             <string>Repair UEFI GRUB (Live CD)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="reg3Button">
+            <property name="text">
+             <string>Regenerate GRUB Configuration</string>
             </property>
            </widget>
           </item>
@@ -299,7 +343,7 @@
         </item>
         <item>
          <layout class="QHBoxLayout" name="timeoutLayout">
-          <item>
+          <item alignment="Qt::AlignmentFlag::AlignLeft">
            <widget class="QLabel" name="timeoutLabel">
             <property name="maximumSize">
              <size>
@@ -323,6 +367,9 @@
               <height>25</height>
              </size>
             </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::ContextMenuPolicy::PreventContextMenu</enum>
+            </property>
             <property name="maxLength">
              <number>50</number>
             </property>
@@ -331,6 +378,9 @@
             </property>
             <property name="cursorMoveStyle">
              <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
             </property>
             <property name="fixedWidth" stdset="0">
              <number>60</number>
@@ -362,14 +412,18 @@
         <item>
          <layout class="QHBoxLayout" name="GFXLayout">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="gfxlabel">
             <property name="text">
              <string>GFXMODE (Resolution)</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="gfxlineEdit">
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -381,11 +435,22 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox">
-          <property name="text">
-           <string>OS Prober</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QCheckBox" name="UUIDcheckBox">
+            <property name="text">
+             <string>Enable Find Disk by UUID</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox">
+            <property name="text">
+             <string>Enable OS Prober</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="kernelLabel">
@@ -395,17 +460,25 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="kernelInput"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="moduleslabel">
-          <property name="text">
-           <string>GRUB_PRELOAD_MODULES</string>
+         <widget class="QLineEdit" name="kernelInput">
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="moduleslineEdit"/>
+         <widget class="QLabel" name="moduleslabel">
+          <property name="text">
+           <string>GRUB preload modules:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="moduleslineEdit">
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="updateLayout">
@@ -434,7 +507,51 @@
        <attribute name="title">
         <string>Install</string>
        </attribute>
-       <layout class="QVBoxLayout" name="installLayout"/>
+       <layout class="QVBoxLayout" name="installLayout">
+        <item>
+         <layout class="QVBoxLayout" name="uefiverticalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>UEFI Boot Entry</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="addhorizontalLayout">
+          <item>
+           <widget class="QPushButton" name="addButton">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="delButton">
+            <property name="text">
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="savehorizontalLayout">
+          <item>
+           <widget class="QPushButton" name="savButton">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
