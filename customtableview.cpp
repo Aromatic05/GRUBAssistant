@@ -3,7 +3,7 @@
 CustomTableView::CustomTableView(QWidget *parent) : QTableView(parent) {}
 
 void CustomTableView::dropEvent(QDropEvent *event) {
-    QModelIndex targetIndex = indexAt(event->pos());
+    QModelIndex targetIndex = indexAt(event->position().toPoint());
     if (!targetIndex.isValid()) {
         return;
     }

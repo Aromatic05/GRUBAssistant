@@ -227,6 +227,11 @@
         <source>Delete</source>
         <translation>删除</translation>
     </message>
+    <message>
+        <location filename="mainwindow.ui" line="555"/>
+        <source>Refresh</source>
+        <translation type="unfinished">刷新</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -234,8 +239,8 @@
         <location filename="mainwindow.cpp" line="28"/>
         <location filename="mainwindow.cpp" line="522"/>
         <location filename="mainwindow.cpp" line="540"/>
-        <location filename="mainwindow.cpp" line="759"/>
-        <location filename="mainwindow.cpp" line="780"/>
+        <location filename="mainwindow.cpp" line="756"/>
+        <location filename="mainwindow.cpp" line="777"/>
         <location filename="partitiondialog.cpp" line="111"/>
         <location filename="partitiondialog.cpp" line="221"/>
         <location filename="partitiondialog.cpp" line="242"/>
@@ -381,7 +386,7 @@
         <location filename="mainwindow.cpp" line="544"/>
         <location filename="mainwindow.cpp" line="597"/>
         <location filename="mainwindow.cpp" line="625"/>
-        <location filename="mainwindow.cpp" line="778"/>
+        <location filename="mainwindow.cpp" line="775"/>
         <location filename="partitiondialog.cpp" line="289"/>
         <location filename="configure.cpp" line="285"/>
         <source>Success</source>
@@ -436,57 +441,57 @@
         <translation>启动顺序保存失败</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="641"/>
+        <location filename="mainwindow.cpp" line="643"/>
         <source>Select Disk:</source>
         <translation>选择磁盘：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="648"/>
+        <location filename="mainwindow.cpp" line="650"/>
         <source>Select FAT Partition:</source>
         <translation>选择FAT分区：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="655"/>
+        <location filename="mainwindow.cpp" line="657"/>
         <source>Enter File Path:</source>
         <translation>输入EFI文件路径：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="662"/>
+        <location filename="mainwindow.cpp" line="664"/>
         <source>Enter the ID:</source>
         <translation>输入启动项名称：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="669"/>
+        <location filename="mainwindow.cpp" line="671"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="673"/>
+        <location filename="mainwindow.cpp" line="675"/>
         <source>Add Boot Entry</source>
         <translation>添加启动项</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="746"/>
         <source>Input Error</source>
         <translation>输入错误</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="746"/>
         <source>Please select a partition and enter a file path.</source>
         <translation>请选择一个分区并输入EFI文件路径。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="759"/>
+        <location filename="mainwindow.cpp" line="756"/>
         <source>The selected partition is not a FAT filesystem.</source>
         <translation>所选分区不是FAT文件系统。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="778"/>
+        <location filename="mainwindow.cpp" line="775"/>
         <source>Boot entry added successfully.</source>
         <translation>启动项添加成功。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="780"/>
+        <location filename="mainwindow.cpp" line="777"/>
         <source>Failed to add boot entry.</source>
         <translation>启动项添加失败。</translation>
     </message>

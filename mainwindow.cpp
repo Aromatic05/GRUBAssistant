@@ -631,9 +631,11 @@ void MainWindow::onSavButtonClicked() {
     refreshBootEntries();
 }
 
+void MainWindow::onRefreshButtonClicked() {
+    refreshBootEntries();
+}
 
 void MainWindow::onAddButtonClicked() {
-    // 创建对话框并设置布局
     QDialog *dialog = new QDialog(this);
     QVBoxLayout *layout = new QVBoxLayout(dialog);
 
@@ -672,17 +674,13 @@ void MainWindow::onAddButtonClicked() {
     dialog->setLayout(layout);
     dialog->setWindowTitle(QObject::tr("Add Boot Entry"));
 
-    // 创建 QProcess 对象（指针形式）
     QProcess *process = new QProcess(this);
-
-    // 加载磁盘和分区信息
     process->start("lsblk", QStringList() << "-o" << "NAME,TYPE,FSTYPE" << "-n" << "-l");
     process->waitForFinished();
 
     QString output = process->readAllStandardOutput();
     QStringList devices = output.split("\n", Qt::SkipEmptyParts);
 
-    // 提取磁盘信息并填充磁盘 ComboBox
     for (const QString &line : devices) {
         QStringList fields = line.split(" ", Qt::SkipEmptyParts);
         if (fields.size() == 2) {
@@ -697,7 +695,6 @@ void MainWindow::onAddButtonClicked() {
         }
     }
 
-    // 加载所有分区信息并填充分区 ComboBox
     for (const QString &line : devices) {
         QStringList fields = line.split(" ", Qt::SkipEmptyParts);
         if (fields.size() >= 3) {
@@ -970,9 +967,11 @@ MainWindow::MainWindow(QWidget *parent)
     // 刷新启动项
     refreshBootEntries();
 
+    // 处理EFI启动项
     connect(ui->addButton, &QPushButton::clicked, this, &MainWindow::onAddButtonClicked);
     connect(ui->delButton, &QPushButton::clicked, this, &MainWindow::onDelButtonClicked);
     connect(ui->savButton, &QPushButton::clicked, this, &MainWindow::onSavButtonClicked);
+    connect(ui->refreshButton, &QPushButton::clicked, this, &MainWindow::onRefreshButtonClicked);
 
 }
 

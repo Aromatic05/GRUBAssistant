@@ -42,6 +42,7 @@ public slots:
     void onDelButtonClicked();
     void onSavButtonClicked();
     void onAddButtonClicked();
+    void onRefreshButtonClicked();
 
 private:
     Ui::MainWindow *ui;
